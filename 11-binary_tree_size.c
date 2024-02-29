@@ -3,8 +3,6 @@
 /**
  * binary_tree_size - records the size of a binary tree
  * @tree: tree to measure the size of
- *
- * 
  * Return: size of the tree
  *         0 if tree is NULL
  */

@@ -7,15 +7,15 @@
  */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
-	size_t level, maxlevel;
+	size_t lv, maxlv;
 
 	if (!tree || !func)
 		return;
 
-	maxlevel = binary_tree_height(tree) + 1;
+	maxlv = binary_tree_height(tree) + 1;
 
-	for (level = 1; level <= maxlevel; level++)
-		btlo_helper(tree, func, level);
+	for (lv = 1; lv <= maxlv; lv++)
+		btlo_helper(tree, func, lv);
 }
 
 /**
@@ -36,7 +36,7 @@ void btlo_helper(const binary_tree_t *tree, void (*func)(int), size_t level)
 }
 
 /**
- * binary_tree_height - measures the height of a binary tree
+ * binary_tree_height - checks the height of a binary tree
  * @tree: tree to measure the height of
  *
  * Return: height of the tree
@@ -44,13 +44,13 @@ void btlo_helper(const binary_tree_t *tree, void (*func)(int), size_t level)
  */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	size_t height_l = 0;
-	size_t height_r = 0;
+	size_t l_height = 0;
+	size_t r_height = 0;
 
 	if (!tree)
 		return (0);
 
-	height_l = tree->left ? 1 + binary_tree_height(tree->left) : 0;
-	height_r = tree->right ? 1 + binary_tree_height(tree->right) : 0;
-	return (height_l > height_r ? height_l : height_r);
+	l_height = tree->left ? 1 + binary_tree_height(tree->left) : 0;
+	r_height = tree->right ? 1 + binary_tree_height(tree->right) : 0;
+	return (l_height > r_height ? l_height : r_height);
 }
